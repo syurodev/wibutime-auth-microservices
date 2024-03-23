@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: wibutime-auth-mongodb
+    ports:
+      - 27015:27017
+    volumes:
+      - mongodata:/data/db/wibutime
+    restart: always
+    command: [--auth]
+volumes:
+  mongodata:
+    driver: local
